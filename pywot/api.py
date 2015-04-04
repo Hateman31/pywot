@@ -3,12 +3,12 @@
 import requests
 import json
 
-class API(object):
+class API:
 
 	BASE_URL = 'https://api.worldoftanks.com/wot'	# no trailing slash
 
-	def __init__(self, app_id):
-		self.app_id = app_id
+	def __init__(self, ID):
+		self.app_id = ID
 
 	def _format_fields(self, fields):
 		return ','.join(fields)

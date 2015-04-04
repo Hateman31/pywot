@@ -7,9 +7,10 @@ class Player(API):
 	''' Methods herein return all publicly exposed data. '''
 
 	def search_players(self, lang='en', search='', fields=''):
-		''' Player API methods require an account_id.  This method allows you to search for players if you don't know
-			their exact username.  Once that is known, call get_account_id, sending it the player's nickname.'''
-		
+		''' 	Player API methods require an account_id.  
+			This method allows you to search for players if you don't know
+			their exact username.  Once that is known, call get_account_id, 
+			sending it the player's nickname.'''
 		endpoint = '/account/list/'
 
 		if type(fields) is list:
@@ -22,7 +23,8 @@ class Player(API):
 		return json.loads(self.search_players(search=nickname,fields='account_id'))['data'][0]['account_id']
 
 	def personal_data(self, account_id='', lang='en', fields=''):
-		''' Returns player statistics.  This is the method you will be most interested in.'''
+		''' 	Returns player statistics.  
+			This is the method you will be most interested in.'''
 
 		endpoint = '/account/info/'
 

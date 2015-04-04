@@ -1,6 +1,6 @@
 .. _main_page:
 
-PyWOT: Python World of Tanks API Wrapper
+PyWOT: World of Tanks API для Python 
 ========================================
 
 .. begin_description
@@ -8,20 +8,19 @@ PyWOT: Python World of Tanks API Wrapper
 .. image:: https://travis-ci.org/mattselph/pywot.svg?branch=master
 		   :target: https://travis-ci.org/mattselph/pywot
 
-A library providing a python interface to Wargaming.net's World of Tanks API.  In order to use this API, you must register as a developer and add an application for free at `Wargaming.net <https://na.wargaming.net/developers>`_.  You will then be given an application ID that you will use when making API calls.  
-
-As of this release the API only works with the North American servers.
-
-All results are returned as JSON documents.
+Это интерфейс World of Tanks API для Python .  
+Чтобы работать с API вы должны авторизоваться на `Wargaming.net <https://na.wargaming.net/developers>`_
+и получить ID приложения. 
+Все получаемые данные в формате JSON
 
 .. end_description
 
 .. begin_installation:
 
-Installation
+Установка
 ------------
 
-PyWOT works with Python 2.6 and 2.7 as of this release.  It can be installed using pip:
+На данный момент, PyWOT работает на Python 2.6, 2.7.  Пакет легко ставится через pip:
 
 .. code-block:: bash
 
@@ -31,10 +30,11 @@ PyWOT works with Python 2.6 and 2.7 as of this release.  It can be installed usi
 
 .. begin_usage
 
-Usage
+Как это работает
 -----
 
-Once you obtain your Application ID, instantiate a new instance of pywot.  The following will get a list of all the tanks in the game:
+Подключаем API и указываем ID. Всё.
+Код ниже получит список всех танков в игре :
 
 .. code-block:: pycon
 
@@ -44,13 +44,14 @@ Once you obtain your Application ID, instantiate a new instance of pywot.  The f
 	>>> t = Tankopedia(app.app_id)
 	>>> print t.list_of_vehicles()
 
-You can get the details of a particular tank with the vehicle_details method.  Here is how you would get the details of the KV-1S:
+Пполучить подробную информацию о конкретном танке можно через метод *vehicle_details* . 
+Вот так мы узнаем всё о Квасе:
 
 .. code-block:: pycon
 	
 	>>> print t.vehicle_details(tank_id=18689)
 
-Or, just get a few fields:
+Или получить лишь несколько полей:
 
 .. code-block:: pycon
 
@@ -66,7 +67,7 @@ The field names can be obtained from the `API Reference <https://na.wargaming.ne
 		tank_id=['18689','33'], 
 		fields=['tank_id', 'nation', 'speed_limit', 'engines.module_id'])
 
-PyWOT also supports specifying different languages for the response:
+PyWOT поддерживает несколько языков:
 
 .. code-block:: pycon
 
@@ -74,10 +75,9 @@ PyWOT also supports specifying different languages for the response:
 		language='ko', 
 		tank_id=['18689','33'], 
 		fields=['tank_id', 'nation', 'speed_limit', 'engines.module_id'])
-
-In order to see the publicly available player statistics, first use the search_players method, sending it an un-wildcarded search string of a user's nickname. Once you have the player's exact nickname, use the get_account_id method to retrieve that player's account_id which will be used in subsequent methods.  You can also chain those method calls together as in the example below.
-
-To get all the achievements of a player with the nickname "lulz_man" do the following:
+Чтобы увидеть доступную статистику игрока, сначала ищем его через *search_players*.
+Если у вас есть точный ник игрока , используйте get_account_id для получения account_id этого игрока.
+Чтобы получить все достижения игрока с ником " lulz_man " делаем следующее:
 
 .. code-block:: pycon
 

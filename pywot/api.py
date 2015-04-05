@@ -7,7 +7,6 @@ foo = lambda fields: ','.join(fields)
 class API:
 	BASE_URL = 'https://api.worldoftanks.ru/'	# no trailing slash
 	_format_fields = foo
-
 	def __init__(self, ID):
 		self.app_id = ID
 	def _api_call(self, endpoint, **kwargs):

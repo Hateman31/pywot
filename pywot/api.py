@@ -15,10 +15,7 @@ class API:
 
 	def _api_call(self, endpoint, **kwargs):
 		''' Initiates an API call '''
-		payload = kwargs
-		# add the application id to our payload
-		payload['application_id'] = self.app_id
-		r = requests.get(self.BASE_URL+endpoint, params=payload)
-		
+		kwargs['application_id'] = self.app_id
+		r = requests.get(self.BASE_URL+endpoint, params=kwargs)
 		return json.dumps(r.json(), sort_keys=True, indent=4)
 				

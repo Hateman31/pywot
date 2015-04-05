@@ -3,16 +3,13 @@
 import requests
 import json
 
+foo = lambda fields: ','.join(fields)
 class API:
-
 	BASE_URL = 'https://api.worldoftanks.ru/'	# no trailing slash
+	_format_fields = foo
 
 	def __init__(self, ID):
 		self.app_id = ID
-
-	def _format_fields(self, fields):
-		return ','.join(fields)
-
 	def _api_call(self, endpoint, **kwargs):
 		''' Initiates an API call '''
 		kwargs['application_id'] = self.app_id

@@ -44,7 +44,7 @@ PyWOT: World of Tanks API для Python
 	>>> t = Tankopedia(app.app_id)
 	>>> print t.list_of_vehicles()
 
-Пполучить подробную информацию о конкретном танке можно через метод *vehicle_details* . 
+Получить подробную информацию о конкретном танке можно через метод *vehicle_details* . 
 Вот так мы узнаем всё о Квасе:
 
 .. code-block:: pycon

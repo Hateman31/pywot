@@ -5,7 +5,7 @@ import json
 
 class API:
 
-	BASE_URL = 'https://api.worldoftanks.com/wot'	# no trailing slash
+	BASE_URL = 'https://api.worldoftanks.ru/'	# no trailing slash
 
 	def __init__(self, ID):
 		self.app_id = ID

@@ -51,7 +51,7 @@ PyWOT: World of Tanks API для Python
 	
 	>>> print t.vehicle_details(tank_id=18689)
 
-Или получить лишь несколько полей:
+Или получим лишь несколько полей:
 
 .. code-block:: pycon
 
